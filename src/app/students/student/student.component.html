@@ -1,0 +1,36 @@
+<form class="student-form" #studentForm="ngForm">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="FirstName" #FirstName="ngModel" [(ngModel)]="studentService.selectedStudent.FirstName"
+        placeholder="First Name" required>
+        <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched">This field is required</div>
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="LastName" #LastName="ngModel" [(ngModel)]="studentService.selectedStudent.LastName"
+        placeholder="Last Name" required>
+        <div class="validation-error" *ngIf="LastName.invalid && LastName.touched">This field is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <input class="form-control" name="Class" #Class="ngModel" [(ngModel)]="studentService.selectedStudent.Class"
+      placeholder="Class">
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <input class="form-control" name="Division" #Division="ngModel" [(ngModel)]="studentService.selectedStudent.Division"
+        placeholder="Division">
+    </div>
+    <div class="form-group col-md-6">
+      <input class="form-control" name="DateOfBirth" #DateOfBirth="ngModel" [(ngModel)]="studentService.selectedStudent.DateOfBirth"
+        placeholder="Date of Birth">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-8">
+      <button [disabled]="!studentForm.valid" type="submit" class="btn btn-info btn-md-8 btn-block"><i class="fa fa-floppy-o"></i> Submit</button>
+    </div>
+    <div class="form-group col-md-4">
+        <button type="button" class="btn btn-warning btn-md-8 btn-block" (click)="resetForm(studentForm)"><i class="fa fa-repeat"></i> Reset</button>
+    </div>
+  </div>
+</form>
